@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Navbar } from '../components/Navbar';
+import { PublicationsFeed } from '../components/PublicationsFeed';
+import { Author } from '../components/Author';
+---
+
+<BaseLayout title="Publications | IRANet" description="Scientific papers and technical reports from IRANet Research.">
+	<main>
+		<Navbar client:load />
+		
+		<div class="pt-16">
+			<PublicationsFeed client:visible />
+		</div>
+		
+		<!-- Footer -->
+		<footer class="border-t border-ira-border py-10 px-6 mt-20">
+			<div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+				<div class="flex items-center gap-2.5 opacity-40">
+					<img src="/ira-logo.png" alt="IRANet" class="w-5 h-5 object-contain grayscale" />
+					<span class="text-[10px] font-bold tracking-[0.15em] text-white">IRANET</span>
+				</div>
+				<p class="text-[10px] text-ira-text-dim tracking-widest">
+					Open source · &copy; {new Date().getFullYear()}
+				</p>
+			</div>
+		</footer>
+
+		<Author client:idle />
+	</main>
+</BaseLayout>
