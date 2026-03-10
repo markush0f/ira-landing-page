@@ -113,7 +113,7 @@ export const InteractiveCanvas = () => {
                 {/* Central Titles Static */}
                 <motion.div
                     style={{ opacity: opacityHero }}
-                    className="relative z-10 text-center pointer-events-none"
+                    className="relative z-10 text-center pointer-events-none -mt-40"
                 >
                     <motion.h1
                         initial={{ opacity: 0, y: 50 }}

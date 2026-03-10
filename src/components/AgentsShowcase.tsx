@@ -11,12 +11,12 @@ export const AgentsShowcase = () => {
 
             <div className="relative z-10 text-center px-6 pointer-events-none select-none">
                 <h2 className="text-3xl md:text-6xl font-black text-white/5 tracking-[0.8em] uppercase">
-                    Ecosistema
+                    Agentes IA
                 </h2>
                 <div className="flex items-center justify-center space-x-3 mt-8">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_15px_emerald]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse shadow-[0_0_15px_rgba(0,255,255,0.8)]" />
                     <p className="text-white/20 font-mono text-[10px] tracking-[0.4em] uppercase">
-                        Swarm processing active
+                        Neural Swarm Intelligence Active
                     </p>
                 </div>
             </div>
