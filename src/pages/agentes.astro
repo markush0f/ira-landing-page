@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { AgentsShowcase } from "../components/AgentsShowcase";
+---
+
+<Layout>
+  <main class="bg-neutral-950 min-h-screen relative overflow-hidden">
+    {/* Background Atmosphere */}
+    <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+      <div
+        class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full"
+      >
+      </div>
+      <div
+        class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 blur-[120px] rounded-full"
+      >
+      </div>
+    </div>
+
+    <nav
+      class="relative z-50 px-8 py-10 flex justify-between items-center max-w-7xl mx-auto w-full"
+    >
+      <a
+        href="/"
+        class="text-white font-black tracking-tighter text-2xl group flex items-center space-x-2"
+      >
+        <span
+          class="w-8 h-8 bg-white text-black flex items-center justify-center rounded-lg group-hover:rotate-12 transition-transform duration-300"
+          >I</span
+        >
+        <span>IRA <span class="text-neutral-500 font-light">TECH</span></span>
+      </a>
+      <div
+        class="flex space-x-8 font-mono text-[10px] tracking-[0.3em] uppercase text-neutral-500"
+      >
+        <a href="/" class="hover:text-white transition-colors"
+          >Volver al Inicio</a
+        >
+        <span class="text-white underline underline-offset-8">Agentes</span>
+      </div>
+    </nav>
+
+    <section class="relative z-10 pt-10">
+      <div class="text-center max-w-3xl mx-auto px-4 mb-10">
+        <h1
+          class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6"
+        >
+          Nuestros <span class="italic font-serif font-light opacity-60"
+            >Agentes</span
+          >
+        </h1>
+        <p
+          class="text-neutral-500 font-mono text-xs md:text-sm leading-relaxed uppercase tracking-widest"
+        >
+          Entidades autónomas diseñadas para optimizar cada capa de tu
+          ecosistema digital. Potencia absoluta sin intervención humana
+          constante.
+        </p>
+      </div>
+
+      <AgentsShowcase client:load />
+    </section>
+
+    <footer class="relative z-10 py-20 border-t border-white/5 text-center">
+      <p
+        class="text-neutral-700 font-mono text-[10px] tracking-[0.5em] uppercase"
+      >
+        Protocolo de Agentes V2.0 // Sistema Operativo NOVA
+      </p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  main {
+    background-color: #050505;
+  }
+</style>
