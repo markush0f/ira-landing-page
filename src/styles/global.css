@@ -88,6 +88,11 @@ a {
   color: rgba(193, 226, 214, 0.72);
 }
 
+.content-shell {
+  width: min(100%, 88rem);
+  margin-inline: auto;
+}
+
 .ambient-grid {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),

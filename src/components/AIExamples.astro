@@ -2,16 +2,16 @@
 import { aiExperimentNotes, aiExperiments } from "../data/home";
 ---
 
-<section id="ejemplos" class="relative z-30 px-6 pb-24 md:px-10">
-  <div class="mx-auto max-w-7xl">
+<section id="ejemplos" class="relative z-30 px-6 pb-20 md:px-10">
+  <div class="content-shell">
     <div class="mb-10 flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
       <div>
         <p class="micro-label">Ejemplos interactivos</p>
-        <h2 class="mt-6 max-w-4xl font-serif text-5xl leading-[0.95] text-[#f2e8d7] md:text-7xl">
+        <h2 class="mt-5 max-w-5xl font-serif text-4xl leading-[0.97] text-[#f2e8d7] md:text-6xl">
           El mismo modelo cambia mucho segun como le hablas.
         </h2>
       </div>
-      <p class="max-w-md text-base leading-7 text-[#a7bab3]">
+      <p class="max-w-lg text-sm leading-7 text-[#a7bab3] md:text-base">
         Cambia de experimento y observa la diferencia entre un prompt pobre, uno
         contextualizado, uno estructurado y otro que exige limites y validacion.
       </p>
@@ -34,7 +34,7 @@ import { aiExperimentNotes, aiExperiments } from "../data/home";
         />
       ))}
 
-      <div class="relative z-10 grid gap-6 xl:grid-cols-[0.78fr_1.22fr]">
+      <div class="relative z-10 grid gap-5 xl:grid-cols-[0.72fr_1.28fr]">
         <div>
           <p class="micro-label">Selecciona una version</p>
           <div class="mt-6 space-y-3">
@@ -68,7 +68,7 @@ import { aiExperimentNotes, aiExperiments } from "../data/home";
               <div class="flex flex-col gap-5 border-b border-white/8 pb-6 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p class="micro-label">Lectura activa {item.id}</p>
-                  <h3 class="mt-5 font-serif text-4xl leading-tight text-[#f2e8d7] md:text-6xl">
+                  <h3 class="mt-4 font-serif text-3xl leading-tight text-[#f2e8d7] md:text-5xl">
                     {item.title}
                   </h3>
                 </div>

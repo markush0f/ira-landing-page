@@ -2,17 +2,17 @@
 import { galleryRowA, galleryRowB } from "../data/home";
 ---
 
-<section class="relative z-30 overflow-hidden px-6 pb-24 pt-10 md:px-10">
-  <div class="mx-auto max-w-7xl">
-    <div class="mb-14 flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between">
+<section class="relative z-30 overflow-hidden px-6 pb-20 pt-8 md:px-10">
+  <div class="content-shell">
+    <div class="mb-10 flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
       <div>
         <p class="micro-label">Galeria de anomalias</p>
-        <h2 class="mt-6 max-w-4xl font-serif text-5xl leading-[0.95] text-[#f2e8d7] md:text-7xl">
+        <h2 class="mt-5 max-w-5xl font-serif text-4xl leading-[0.97] text-[#f2e8d7] md:text-6xl">
           Escenas que parecen ciencia ficcion, pero ya viven dentro del
           comportamiento de los modelos.
         </h2>
       </div>
-      <p class="max-w-md text-base leading-7 text-[#9db1aa]">
+      <p class="max-w-lg text-sm leading-7 text-[#9db1aa] md:text-base">
         La galeria mantiene movimiento continuo y hover, pero ya no depende de
         scroll listeners ni de Framer Motion.
       </p>
@@ -21,10 +21,10 @@ import { galleryRowA, galleryRowB } from "../data/home";
 
   <div class="space-y-6">
     <div class="gallery-strip">
-      <div class="gallery-track flex w-max gap-6 pl-6 pr-10 md:pl-10">
+      <div class="gallery-track flex w-max gap-5 pl-6 pr-10 md:pl-10">
         {[...galleryRowA, ...galleryRowA].map((item) => (
           <article
-            class="gallery-card group relative h-[25rem] w-[19rem] overflow-hidden rounded-[2rem] border border-white/8 p-6 md:w-[23rem]"
+            class="gallery-card group relative h-[22rem] w-[17rem] overflow-hidden rounded-[2rem] border border-white/8 p-5 md:w-[20rem]"
             style={`background: ${item.background}`}
           >
             <div
@@ -45,7 +45,7 @@ import { galleryRowA, galleryRowB } from "../data/home";
             </div>
 
             <div class="relative z-10 flex h-full flex-col justify-end">
-              <h3 class="max-w-[12ch] font-serif text-4xl leading-none text-[#f2e8d7] md:text-5xl">
+              <h3 class="max-w-[12ch] font-serif text-[2rem] leading-none text-[#f2e8d7] md:text-[2.7rem]">
                 {item.title}
               </h3>
               <p class="mt-4 max-w-[28ch] text-sm leading-6 text-[#c8d2cf]">
@@ -75,10 +75,10 @@ import { galleryRowA, galleryRowB } from "../data/home";
     </div>
 
     <div class="gallery-strip">
-      <div class="gallery-track gallery-track-reverse flex w-max gap-6 pl-10 pr-6 md:pl-20">
+      <div class="gallery-track gallery-track-reverse flex w-max gap-5 pl-10 pr-6 md:pl-20">
         {[...galleryRowB, ...galleryRowB].map((item) => (
           <article
-            class="gallery-card group relative h-[25rem] w-[19rem] overflow-hidden rounded-[2rem] border border-white/8 p-6 md:w-[23rem]"
+            class="gallery-card group relative h-[22rem] w-[17rem] overflow-hidden rounded-[2rem] border border-white/8 p-5 md:w-[20rem]"
             style={`background: ${item.background}`}
           >
             <div
@@ -99,7 +99,7 @@ import { galleryRowA, galleryRowB } from "../data/home";
             </div>
 
             <div class="relative z-10 flex h-full flex-col justify-end">
-              <h3 class="max-w-[12ch] font-serif text-4xl leading-none text-[#f2e8d7] md:text-5xl">
+              <h3 class="max-w-[12ch] font-serif text-[2rem] leading-none text-[#f2e8d7] md:text-[2.7rem]">
                 {item.title}
               </h3>
               <p class="mt-4 max-w-[28ch] text-sm leading-6 text-[#c8d2cf]">
