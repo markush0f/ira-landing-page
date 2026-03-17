@@ -1,6 +1,15 @@
 ---
 import SectionIntro from "../ui/SectionIntro.astro";
 import { systemLayers } from "../../data/home";
+
+const layerGuides = [
+  "Si esta base es floja, el resto solo maquilla problemas mas profundos.",
+  "Aqui se fija la conducta visible. Cambiar instrucciones suele dar mas retorno que tocar UI sin criterio.",
+  "Esta capa acerca la IA al presente. Sin ella, el sistema improvisa sobre informacion vieja o insuficiente.",
+  "Las herramientas convierten lenguaje en accion, pero tambien multiplican el riesgo si no hay controles.",
+  "La memoria mejora continuidad, pero tambien puede exagerar la sensacion de identidad o recuerdo real.",
+  "Los guardrails deciden donde frenar, pedir confirmacion o negarse. Son producto y politica al mismo tiempo.",
+] as const;
 ---
 
 <section id="arquitectura" class="relative z-30 px-6 pb-24 md:px-10">
@@ -8,20 +17,35 @@ import { systemLayers } from "../../data/home";
     <SectionIntro
       eyebrow="Arquitectura real"
       title="Una experiencia con IA no es solo el modelo: es una pila de decisiones tecnicas y de producto."
-      description="Cuando un usuario dice que una IA funciona bien o mal, normalmente esta juzgando el conjunto: prompt, contexto, herramientas, guardrails y puesta en escena."
+      description="Las capas ahora se pueden abrir una a una para entender que hace cada pieza y por que el usuario final percibe todo como un unico sistema."
     />
 
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {systemLayers.map((item) => (
-        <article class="rounded-[1.7rem] border border-white/8 bg-white/[0.03] p-6">
-          <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#f3a65f]/78">
-            {item.label}
-          </span>
-          <h3 class="mt-4 font-serif text-3xl leading-tight text-[#f2e8d7]">
-            {item.title}
-          </h3>
+      {systemLayers.map((item, index) => (
+        <details
+          class="interactive-details rounded-[1.7rem] border border-white/8 bg-white/[0.03] p-6"
+          open={index === 0}
+        >
+          <summary class="interactive-summary">
+            <div>
+              <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#f3a65f]/78">
+                {item.label}
+              </span>
+              <h3 class="mt-4 font-serif text-3xl leading-tight text-[#f2e8d7]">
+                {item.title}
+              </h3>
+            </div>
+            <span class="interactive-chevron">+</span>
+          </summary>
+
           <p class="mt-4 text-sm leading-7 text-[#c3d0cb]">{item.copy}</p>
-        </article>
+          <div class="interactive-note mt-4">
+            <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#7ce7c6]/78">
+              Impacto real
+            </span>
+            <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{layerGuides[index]}</p>
+          </div>
+        </details>
       ))}
     </div>
   </div>

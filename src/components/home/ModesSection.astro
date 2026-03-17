@@ -1,6 +1,25 @@
 ---
 import SectionIntro from "../ui/SectionIntro.astro";
 import { aiModes } from "../../data/home";
+
+const modeGuides = [
+  {
+    label: "No esperar",
+    detail: "Que un texto fluido implique conocimiento experto o verificacion externa. Generar bien y saber bien no son la misma cosa.",
+  },
+  {
+    label: "Senal util",
+    detail: "Funciona bien cuando el objetivo esta claro y puedes medir precision por categorias, rutas o etiquetas concretas.",
+  },
+  {
+    label: "Pregunta clave",
+    detail: "Que dato historico alimenta la prediccion y cada cuanto lo recalculas. Sin eso, la promesa queda en marketing.",
+  },
+  {
+    label: "Punto critico",
+    detail: "La autonomia solo compensa cuando hay herramientas fiables, permisos claros y puntos de control humano visibles.",
+  },
+] as const;
 ---
 
 <section id="tipos-de-ia" class="relative z-30 px-6 pb-24 md:px-10">
@@ -8,23 +27,37 @@ import { aiModes } from "../../data/home";
     <SectionIntro
       eyebrow="Panorama"
       title="No toda IA hace lo mismo aunque desde fuera se meta todo en la misma bolsa."
-      description="Separar tipos de sistemas evita promesas vagas. Una IA que genera contenido, una que clasifica y una que actua sobre herramientas tienen riesgos, costes y metricas distintas."
+      description="Cada tarjeta ahora se abre para aterrizar que promete de verdad cada tipo de sistema y donde suele empezar la confusion."
     />
 
-    <div class="grid gap-4 lg:grid-cols-4">
-      {aiModes.map((item) => (
-        <article class="glass-panel rounded-[1.8rem] p-6 md:p-7">
-          <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#7ce7c6]/78">
-            Tipo
-          </span>
-          <h3 class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7]">
-            {item.title}
-          </h3>
+    <div class="grid gap-4 lg:grid-cols-2">
+      {aiModes.map((item, index) => (
+        <details class="interactive-details glass-panel rounded-[1.8rem] p-6 md:p-7" open={index === 0}>
+          <summary class="interactive-summary">
+            <div>
+              <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#7ce7c6]/78">
+                Tipo
+              </span>
+              <h3 class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7]">
+                {item.title}
+              </h3>
+            </div>
+            <span class="interactive-chevron">+</span>
+          </summary>
+
           <p class="mt-5 text-sm leading-7 text-[#bfd0ca]">{item.copy}</p>
           <p class="mt-5 border-t border-white/8 pt-5 text-xs uppercase tracking-[0.24em] text-[#f3a65f]/78">
             {item.example}
           </p>
-        </article>
+          <div class="interactive-note mt-5">
+            <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#7ce7c6]/78">
+              {modeGuides[index].label}
+            </span>
+            <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">
+              {modeGuides[index].detail}
+            </p>
+          </div>
+        </details>
       ))}
     </div>
   </div>

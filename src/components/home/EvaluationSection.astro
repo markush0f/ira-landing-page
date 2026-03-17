@@ -1,6 +1,19 @@
 ---
 import SectionIntro from "../ui/SectionIntro.astro";
 import { evaluationPillars, humanCheckpoints } from "../../data/home";
+
+const evaluationGuides = [
+  "Busca impacto observable en tiempo, calidad o carga operativa. Si no mejora nada medible, no hay producto.",
+  "La precision debe medirse por tarea y por contexto, no por impresiones generales despues de una demo.",
+  "Cada iteracion tiene coste computacional y coste humano. Ambos importan para decidir si escala.",
+  "Sin una ruta clara para revisar o corregir, la autonomia se convierte en deuda operativa.",
+] as const;
+
+const checkpointGuides = [
+  "La experiencia debe facilitar preguntas de aclaracion antes de inventar seguridad.",
+  "Una buena interfaz hace visible el ultimo punto donde una persona todavia puede detener el sistema.",
+  "El error util es el que deja rastro para ajustar prompts, evaluaciones y flujos posteriores.",
+] as const;
 ---
 
 <section id="evaluacion" class="relative z-30 px-6 pb-24 md:px-10">
@@ -9,22 +22,37 @@ import { evaluationPillars, humanCheckpoints } from "../../data/home";
       <SectionIntro
         eyebrow="Criterio"
         title="La pregunta correcta no es si la IA parece lista, sino si trabaja bien dentro de limites claros."
-        description="Medir una IA obliga a mezclar calidad de salida, coste, tiempo de respuesta y capacidad de correccion. Sin ese marco, la demo engaña."
+        description="Los pilares se pueden abrir para que la evaluacion no se quede en sensaciones. La idea es leer calidad, coste y supervision como un mismo problema."
         titleClass="max-w-3xl font-serif text-5xl leading-[0.95] text-[#f2e8d7] md:text-6xl"
         descriptionClass="max-w-xl text-base leading-8 text-[#a7bab3]"
       />
 
       <div class="mt-8 space-y-4">
-        {evaluationPillars.map((item) => (
-          <div class="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
-            <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#7ce7c6]/78">
-              Pilar
-            </span>
-            <h3 class="mt-3 font-serif text-3xl leading-tight text-[#f2e8d7]">
-              {item.title}
-            </h3>
+        {evaluationPillars.map((item, index) => (
+          <details
+            class="interactive-details rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5"
+            open={index === 0}
+          >
+            <summary class="interactive-summary">
+              <div>
+                <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#7ce7c6]/78">
+                  Pilar
+                </span>
+                <h3 class="mt-3 font-serif text-3xl leading-tight text-[#f2e8d7]">
+                  {item.title}
+                </h3>
+              </div>
+              <span class="interactive-chevron">+</span>
+            </summary>
+
             <p class="mt-3 text-sm leading-7 text-[#c3d0cb]">{item.copy}</p>
-          </div>
+            <div class="interactive-note mt-4">
+              <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#f3a65f]/78">
+                Como leerlo
+              </span>
+              <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{evaluationGuides[index]}</p>
+            </div>
+          </details>
         ))}
       </div>
     </div>
@@ -35,13 +63,28 @@ import { evaluationPillars, humanCheckpoints } from "../../data/home";
         Hay momentos en los que una buena experiencia necesita menos autonomia y mas criterio visible.
       </h3>
       <div class="mt-8 space-y-4">
-        {humanCheckpoints.map((item) => (
-          <article class="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
-            <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#f3a65f]/78">
-              {item.stage}
-            </span>
-            <p class="mt-3 text-sm leading-7 text-[#c6d2ce]">{item.signal}</p>
-          </article>
+        {humanCheckpoints.map((item, index) => (
+          <details
+            class="interactive-details rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5"
+            open={index === 0}
+          >
+            <summary class="interactive-summary">
+              <div>
+                <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#f3a65f]/78">
+                  {item.stage}
+                </span>
+                <p class="mt-3 text-sm leading-7 text-[#c6d2ce]">{item.signal}</p>
+              </div>
+              <span class="interactive-chevron">+</span>
+            </summary>
+
+            <div class="interactive-note mt-4">
+              <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#7ce7c6]/78">
+                Decision de interfaz
+              </span>
+              <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{checkpointGuides[index]}</p>
+            </div>
+          </details>
         ))}
       </div>
     </div>

@@ -1,6 +1,25 @@
 ---
 import SectionIntro from "../ui/SectionIntro.astro";
 import { fundamentals } from "../../data/home";
+
+const fundamentalsGuides = [
+  {
+    focus: "Que mirar",
+    detail: "Aqui se decide de que patrones parte el sistema. Si el corpus es pobre o sesgado, el resto de capas hereda ese problema.",
+  },
+  {
+    focus: "Que recordar",
+    detail: "Sin contexto suficiente, una respuesta no se vuelve mas inteligente: solo rellena huecos con mayor probabilidad de sonar bien.",
+  },
+  {
+    focus: "Que cambia",
+    detail: "La misma entrada puede producir salidas distintas segun temperatura, instrucciones y formato pedido. La variacion es una propiedad del sistema.",
+  },
+  {
+    focus: "Que aporta",
+    detail: "La alineacion no vuelve verdadero al modelo. Lo vuelve mas util y menos riesgoso dentro de ciertos limites de producto.",
+  },
+] as const;
 ---
 
 <section id="fundamentos" class="relative z-30 px-6 pb-24 md:px-10">
@@ -8,20 +27,34 @@ import { fundamentals } from "../../data/home";
     <SectionIntro
       eyebrow="Fundamentos"
       title="Que hace realmente una IA cuando parece que esta pensando."
-      description="Aqui esta la base tecnica, sin postureo: entrenamiento, contexto, generacion y alineacion. Cuatro capas para entender por que estas herramientas parecen tan listas y por que a veces fallan tan raro."
+      description="Aqui esta la base tecnica, sin postureo: entrenamiento, contexto, generacion y alineacion. Ahora cada bloque se puede abrir para leer el matiz que normalmente se pierde."
     />
 
     <div class="grid gap-4 lg:grid-cols-2">
-      {fundamentals.map((item) => (
-        <article class="glass-panel rounded-[1.8rem] p-6 md:p-8">
-          <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#7ce7c6]/78">
-            {item.title}
-          </span>
-          <p class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7] md:text-5xl">
-            {item.title}
-          </p>
+      {fundamentals.map((item, index) => (
+        <details class="interactive-details glass-panel rounded-[1.8rem] p-6 md:p-8" open={index === 0}>
+          <summary class="interactive-summary">
+            <div>
+              <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#7ce7c6]/78">
+                Capa base
+              </span>
+              <p class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7] md:text-5xl">
+                {item.title}
+              </p>
+            </div>
+            <span class="interactive-chevron">+</span>
+          </summary>
+
           <p class="mt-5 text-base leading-8 text-[#bfd0ca]">{item.copy}</p>
-        </article>
+          <div class="interactive-note mt-5">
+            <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#f3a65f]/78">
+              {fundamentalsGuides[index].focus}
+            </span>
+            <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">
+              {fundamentalsGuides[index].detail}
+            </p>
+          </div>
+        </details>
       ))}
     </div>
   </div>
