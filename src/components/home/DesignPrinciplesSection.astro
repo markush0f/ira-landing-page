@@ -1,0 +1,28 @@
+---
+import SectionIntro from "../ui/SectionIntro.astro";
+import { designPrinciples } from "../../data/home";
+---
+
+<section class="relative z-30 px-6 pb-24 md:px-10">
+  <div class="mx-auto max-w-7xl">
+    <SectionIntro
+      eyebrow="Diseño Responsable"
+      title="Como hacer que una experiencia de IA sea elegante sin vender humo."
+      description="El reto no es solo visual. Es de honestidad: cuanto mejor se siente la interfaz, mas importante es que no finja certezas que el sistema no tiene."
+    />
+
+    <div class="grid gap-4 lg:grid-cols-3">
+      {designPrinciples.map((item) => (
+        <article class="glass-panel rounded-[1.8rem] p-6 md:p-8">
+          <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#f3a65f]/78">
+            Principio
+          </span>
+          <h3 class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7]">
+            {item.title}
+          </h3>
+          <p class="mt-5 text-base leading-8 text-[#bfd0ca]">{item.copy}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

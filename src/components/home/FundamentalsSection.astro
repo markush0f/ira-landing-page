@@ -1,0 +1,28 @@
+---
+import SectionIntro from "../ui/SectionIntro.astro";
+import { fundamentals } from "../../data/home";
+---
+
+<section id="fundamentos" class="relative z-30 px-6 pb-24 md:px-10">
+  <div class="mx-auto max-w-7xl">
+    <SectionIntro
+      eyebrow="Fundamentos"
+      title="Que hace realmente una IA cuando parece que esta pensando."
+      description="Aqui esta la base tecnica, sin postureo: entrenamiento, contexto, generacion y alineacion. Cuatro capas para entender por que estas herramientas parecen tan listas y por que a veces fallan tan raro."
+    />
+
+    <div class="grid gap-4 lg:grid-cols-2">
+      {fundamentals.map((item) => (
+        <article class="glass-panel rounded-[1.8rem] p-6 md:p-8">
+          <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#7ce7c6]/78">
+            {item.title}
+          </span>
+          <p class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7] md:text-5xl">
+            {item.title}
+          </p>
+          <p class="mt-5 text-base leading-8 text-[#bfd0ca]">{item.copy}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

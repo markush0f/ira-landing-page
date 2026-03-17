@@ -1,100 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { InteractiveCanvas } from "../components/InteractiveCanvas";
-import { ScrollGallery } from "../components/ScrollGallery";
-import { AgentsShowcase } from "../components/AgentsShowcase";
+import InteractiveCanvas from "../components/InteractiveCanvas.astro";
+import AIExamples from "../components/AIExamples.astro";
+import AgentsShowcase from "../components/AgentsShowcase.astro";
+import ScrollGallery from "../components/ScrollGallery.astro";
+import ArchiveSection from "../components/home/ArchiveSection.astro";
+import DesignPrinciplesSection from "../components/home/DesignPrinciplesSection.astro";
+import FinalCalloutSection from "../components/home/FinalCalloutSection.astro";
+import FundamentalsSection from "../components/home/FundamentalsSection.astro";
+import GlossarySection from "../components/home/GlossarySection.astro";
+import ResponseCycleSection from "../components/home/ResponseCycleSection.astro";
+import UnderstandingSection from "../components/home/UnderstandingSection.astro";
+import SectionIntro from "../components/ui/SectionIntro.astro";
 ---
 
-<Layout>
-  <main class="bg-neutral-950">
-    <InteractiveCanvas client:load />
+<Layout
+  title="IRA | Archivo Oculto de la IA"
+  description="Una landing experimental con nuevas secciones, animaciones y una narrativa visual sobre los mecanismos invisibles de la inteligencia artificial."
+>
+  <main id="top" class="relative overflow-x-hidden">
+    <InteractiveCanvas />
+    <ArchiveSection />
+    <FundamentalsSection />
+    <ResponseCycleSection />
+    <AIExamples />
+    <UnderstandingSection />
+    <GlossarySection />
 
-    <section
-      class="relative z-30 min-h-screen bg-neutral-950 flex flex-col items-center justify-center p-8 -mt-[40vh]"
-    >
-      <div class="max-w-4xl w-full text-center">
-        <h2
-          class="text-3xl md:text-5xl lg:text-7xl font-light text-white mb-10 tracking-tight"
-        >
-          Velocidad, Resuelta en <span
-            class="font-serif italic bg-gradient-to-tr from-stone-300 to-white bg-clip-text text-transparent"
-            >Silencio.</span
-          >
-        </h2>
-        <p
-          class="text-neutral-400 font-mono text-lg max-w-2xl mx-auto leading-relaxed mb-20"
-        >
-          Implementación purista usando Astro y React. Los componentes envían
-          cero Javascript al navegador hasta que interactúas con ellos, logrando
-          un rendimiento asombroso en conjunto con SSR.
-        </p>
-
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 p-px rounded-3xl overflow-hidden shadow-2xl shadow-white/5 group"
-        >
-          <div
-            class="bg-neutral-950 p-12 text-left hover:bg-neutral-900 transition-colors duration-500"
-          >
-            <span class="text-4xl text-white font-serif mb-6 inline-block"
-              >01</span
-            >
-            <h3
-              class="text-white text-xl font-bold tracking-widest uppercase mb-4"
-            >
-              Arquitectura Estática
-            </h3>
-            <p class="text-neutral-500 font-mono text-sm leading-loose">
-              El layout principal es renderizado a HTML puro. Las estructuras no
-              interactivas consumen 0kb de Javascript permitiendo tiempos de
-              Time-To-Interactive (TTI) perfectos.
-            </p>
-          </div>
-
-          <div
-            class="bg-neutral-950 p-12 text-left hover:bg-neutral-900 transition-colors duration-500"
-          >
-            <span class="text-4xl text-white font-serif mb-6 inline-block"
-              >02</span
-            >
-            <h3
-              class="text-white text-xl font-bold tracking-widest uppercase mb-4"
-            >
-              Reactividad Guiada
-            </h3>
-            <p class="text-neutral-500 font-mono text-sm leading-loose">
-              Islas de interactividad (Islands Architecture) hidratan solo los
-              componentes de Framer Motion y React bajo demanda cuando son
-              visibles (<code class="text-xs bg-neutral-800 px-1 rounded"
-                >client:load / client:visible</code
-              >).
-            </p>
-          </div>
-        </div>
+    <section id="misterios" class="relative z-30 px-6 pb-24 md:px-10">
+      <div class="mx-auto max-w-7xl">
+        <SectionIntro
+          eyebrow="Mecanismos sellados"
+          title="Casos concretos para entender por que una conversacion con IA puede parecer mas humana de lo que es."
+          description="Aqui la interaccion importa: cada expediente aterriza un fenomeno distinto y traduce conceptos abstractos en consecuencias reales de producto, confianza y experiencia de usuario."
+        />
+        <AgentsShowcase />
       </div>
     </section>
 
-    <section class="relative z-30 bg-neutral-950 py-20 border-t border-white/5">
-      <div class="text-center mb-10">
-        <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter">
-          Ecosistema <span class="italic font-serif font-light opacity-60"
-            >Autónomo</span
-          >
-        </h2>
-      </div>
-      <AgentsShowcase client:visible />
-    </section>
-
-    <ScrollGallery client:visible />
-
-    <footer
-      class="relative z-30 bg-black border-t border-white/10 py-24 text-center"
-    >
-      <h3 class="text-neutral-600 font-serif italic text-2xl md:text-4xl mb-6">
-        Fin de la demostración.
-      </h3>
-      <p class="text-neutral-800 font-mono text-xs tracking-[0.2em] uppercase">
-        Built with Astro + Framer Motion + Tailwind CSS
-      </p>
-    </footer>
+    <ScrollGallery />
+    <DesignPrinciplesSection />
+    <FinalCalloutSection />
   </main>
 </Layout>

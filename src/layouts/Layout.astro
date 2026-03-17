@@ -1,5 +1,15 @@
 ---
 import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "IRA | Archivo Oculto de la IA",
+  description = "Una landing experimental sobre los mecanismos invisibles, las alucinaciones elegantes y la belleza inquietante de la inteligencia artificial.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -12,13 +22,15 @@ import "../styles/global.css";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>NOVA | Next-Gen Experience</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#061014" />
+    <title>{title}</title>
   </head>
-  <body class="antialiased selection:bg-purple-500/30 selection:text-white">
+  <body class="antialiased">
     <slot />
   </body>
 </html>

@@ -1,18 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { AgentsShowcase } from "../components/AgentsShowcase";
+import AgentsShowcase from "../components/AgentsShowcase.astro";
 ---
 
 <Layout>
-  <main class="bg-neutral-950 min-h-screen relative overflow-hidden">
+  <main class="min-h-screen relative overflow-hidden">
     {/* Background Atmosphere */}
     <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
       <div
-        class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full"
+        class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#69e9c4]/10 blur-[120px]"
       >
       </div>
       <div
-        class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 blur-[120px] rounded-full"
+        class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-[#f3a65f]/10 blur-[120px]"
       >
       </div>
     </div>
@@ -22,18 +22,18 @@ import { AgentsShowcase } from "../components/AgentsShowcase";
     >
       <a
         href="/"
-        class="text-white font-black tracking-tighter text-2xl group flex items-center space-x-2"
+        class="flex items-center space-x-2 text-2xl font-black tracking-tighter text-white group"
       >
         <span
-          class="w-8 h-8 bg-white text-black flex items-center justify-center rounded-lg group-hover:rotate-12 transition-transform duration-300"
+          class="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black transition-transform duration-300 group-hover:rotate-12"
           >I</span
         >
-        <span>IRA <span class="text-neutral-500 font-light">TECH</span></span>
+        <span>IRA <span class="font-light text-[#9cb0a9]">ARCHIVE</span></span>
       </a>
       <div
-        class="flex space-x-8 font-mono text-[10px] tracking-[0.3em] uppercase text-neutral-500"
+        class="flex space-x-8 text-[10px] uppercase tracking-[0.3em] text-[#8ea29c]"
       >
-        <a href="/" class="hover:text-white transition-colors"
+        <a href="/" class="transition-colors hover:text-white"
           >Volver al Inicio</a
         >
         <span class="text-white underline underline-offset-8">Agentes</span>
@@ -43,36 +43,30 @@ import { AgentsShowcase } from "../components/AgentsShowcase";
     <section class="relative z-10 pt-10">
       <div class="text-center max-w-3xl mx-auto px-4 mb-10">
         <h1
-          class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6"
+          class="mb-6 text-4xl font-black tracking-tighter text-white md:text-6xl"
         >
-          Nuestros <span class="italic font-serif font-light opacity-60"
-            >Agentes</span
+          Nuestros <span class="font-serif font-light italic opacity-60">Agentes</span
           >
         </h1>
         <p
-          class="text-neutral-500 font-mono text-xs md:text-sm leading-relaxed uppercase tracking-widest"
+          class="text-xs uppercase tracking-widest text-[#9cb0a9] md:text-sm"
         >
-          Entidades autónomas diseñadas para optimizar cada capa de tu
-          ecosistema digital. Potencia absoluta sin intervención humana
-          constante.
+          El mismo archivo interactivo, pero sin hidratacion cliente. Mas rapido,
+          mas ligero y bastante menos costoso para el navegador.
         </p>
       </div>
 
-      <AgentsShowcase client:load />
+      <div class="mx-auto max-w-7xl px-4">
+        <AgentsShowcase />
+      </div>
     </section>
 
     <footer class="relative z-10 py-20 border-t border-white/5 text-center">
       <p
-        class="text-neutral-700 font-mono text-[10px] tracking-[0.5em] uppercase"
+        class="text-[10px] uppercase tracking-[0.5em] text-[#7e908a]"
       >
-        Protocolo de Agentes V2.0 // Sistema Operativo NOVA
+        Protocolo de Agentes // version estatica optimizada
       </p>
     </footer>
   </main>
 </Layout>
-
-<style>
-  main {
-    background-color: #050505;
-  }
-</style>

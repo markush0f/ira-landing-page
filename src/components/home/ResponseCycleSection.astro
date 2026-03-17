@@ -1,0 +1,28 @@
+---
+import SectionIntro from "../ui/SectionIntro.astro";
+import { responseCycle } from "../../data/home";
+---
+
+<section class="relative z-30 px-6 pb-24 md:px-10">
+  <div class="mx-auto max-w-7xl">
+    <SectionIntro
+      eyebrow="Ciclo de respuesta"
+      title="Lo que sucede entre tu pregunta y esa frase que parece tan segura."
+      description="Esta cadena es simple de leer y util para producto: permite entender donde nace la calidad de una respuesta y donde tambien puede nacer su error."
+    />
+
+    <div class="grid gap-4 lg:grid-cols-4">
+      {responseCycle.map((item) => (
+        <article class="glass-panel rounded-[1.8rem] p-6">
+          <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#f3a65f]/78">
+            Fase {item.step}
+          </span>
+          <h3 class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7]">
+            {item.title}
+          </h3>
+          <p class="mt-5 text-sm leading-7 text-[#bfd0ca]">{item.copy}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
