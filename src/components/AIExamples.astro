@@ -1,9 +1,9 @@
 ---
 import { aiExperimentNotes, aiExperiments } from "../data/home";
+import PageSection from "./ui/PageSection.astro";
 ---
 
-<section id="ejemplos" class="relative z-30 px-6 pb-20 md:px-10">
-  <div class="content-shell">
+<PageSection id="ejemplos">
     <div class="mb-10 flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
       <div>
         <p class="micro-label">Ejemplos interactivos</p>
@@ -132,8 +132,7 @@ import { aiExperimentNotes, aiExperiments } from "../data/home";
         </article>
       ))}
     </div>
-  </div>
-</section>
+</PageSection>
 
 <style>
   .experiment-panel {

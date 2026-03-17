@@ -1,0 +1,25 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+  containerClass?: string;
+  shell?: boolean;
+}
+
+const {
+  id,
+  class: sectionClass = "",
+  containerClass = "",
+  shell = true,
+} = Astro.props;
+---
+
+<section id={id} class={`page-section relative z-30 px-6 pb-20 md:px-10 ${sectionClass}`.trim()}>
+  {shell ? (
+    <div class={`content-shell ${containerClass}`.trim()}>
+      <slot />
+    </div>
+  ) : (
+    <slot />
+  )}
+</section>

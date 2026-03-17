@@ -1,6 +1,8 @@
 ---
-import SectionIntro from "../ui/SectionIntro.astro";
 import { responseCycle } from "../../data/home";
+import InteractiveDetails from "../ui/InteractiveDetails.astro";
+import PageSection from "../ui/PageSection.astro";
+import SectionIntro from "../ui/SectionIntro.astro";
 
 const responseSignals = [
   "Si la entrada es ambigua, todo el recorrido arranca torcido.",
@@ -10,38 +12,34 @@ const responseSignals = [
 ] as const;
 ---
 
-<section class="relative z-30 px-6 pb-20 md:px-10">
-  <div class="content-shell">
-    <SectionIntro
-      eyebrow="Ciclo de respuesta"
-      title="Lo que sucede entre tu pregunta y esa frase que parece tan segura."
-      description="Cada fase se puede desplegar para que el usuario vea donde se juega la calidad de la respuesta y donde tambien nace el error."
-    />
+<PageSection>
+  <SectionIntro
+    eyebrow="Ciclo de respuesta"
+    title="Lo que sucede entre tu pregunta y esa frase que parece tan segura."
+    description="Cada fase se puede desplegar para que el usuario vea donde se juega la calidad de la respuesta y donde tambien nace el error."
+  />
 
-    <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
-      {responseCycle.map((item, index) => (
-        <details class="interactive-details glass-panel rounded-[1.8rem] p-6" open={index === 0}>
-          <summary class="interactive-summary">
-            <div>
-              <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#f3a65f]/78">
-                Fase {item.step}
-              </span>
-              <h3 class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7]">
-                {item.title}
-              </h3>
-            </div>
-            <span class="interactive-chevron">+</span>
-          </summary>
+  <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
+    {responseCycle.map((item, index) => (
+      <InteractiveDetails class="glass-panel rounded-[1.8rem] p-6" open={index === 0} bodyClass="mt-5" noteClass="mt-5">
+        <Fragment slot="summary">
+          <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#f3a65f]/78">
+            Fase {item.step}
+          </span>
+          <h3 class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7]">
+            {item.title}
+          </h3>
+        </Fragment>
 
-          <p class="mt-5 text-sm leading-7 text-[#bfd0ca]">{item.copy}</p>
-          <div class="interactive-note mt-5">
-            <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#7ce7c6]/78">
-              Observa
-            </span>
-            <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{responseSignals[index]}</p>
-          </div>
-        </details>
-      ))}
-    </div>
+        <p class="text-sm leading-7 text-[#bfd0ca]">{item.copy}</p>
+
+        <Fragment slot="note">
+          <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#7ce7c6]/78">
+            Observa
+          </span>
+          <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{responseSignals[index]}</p>
+        </Fragment>
+      </InteractiveDetails>
+    ))}
   </div>
-</section>
+</PageSection>

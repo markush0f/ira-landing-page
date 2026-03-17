@@ -1,6 +1,8 @@
 ---
-import SectionIntro from "../ui/SectionIntro.astro";
 import { designPrinciples } from "../../data/home";
+import InteractiveDetails from "../ui/InteractiveDetails.astro";
+import PageSection from "../ui/PageSection.astro";
+import SectionIntro from "../ui/SectionIntro.astro";
 
 const principleGuides = [
   "Abrir una idea al usuario mejora criterio y reduce la falsa sensacion de magia infalible.",
@@ -9,38 +11,34 @@ const principleGuides = [
 ] as const;
 ---
 
-<section class="relative z-30 px-6 pb-20 md:px-10">
-  <div class="content-shell">
-    <SectionIntro
-      eyebrow="Diseno responsable"
-      title="Como hacer que una experiencia de IA sea elegante sin vender humo."
-      description="Cada principio se despliega para bajar la idea a una decision de interfaz concreta y no dejarlo en teoria."
-    />
+<PageSection>
+  <SectionIntro
+    eyebrow="Diseno responsable"
+    title="Como hacer que una experiencia de IA sea elegante sin vender humo."
+    description="Cada principio se despliega para bajar la idea a una decision de interfaz concreta y no dejarlo en teoria."
+  />
 
-    <div class="grid gap-4 lg:grid-cols-3">
-      {designPrinciples.map((item, index) => (
-        <details class="interactive-details glass-panel rounded-[1.8rem] p-6 md:p-8" open={index === 0}>
-          <summary class="interactive-summary">
-            <div>
-              <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#f3a65f]/78">
-                Principio
-              </span>
-              <h3 class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7]">
-                {item.title}
-              </h3>
-            </div>
-            <span class="interactive-chevron">+</span>
-          </summary>
+  <div class="grid gap-4 lg:grid-cols-3">
+    {designPrinciples.map((item, index) => (
+      <InteractiveDetails class="glass-panel rounded-[1.8rem] p-6 md:p-8" open={index === 0} bodyClass="mt-5" noteClass="mt-5">
+        <Fragment slot="summary">
+          <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#f3a65f]/78">
+            Principio
+          </span>
+          <h3 class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7]">
+            {item.title}
+          </h3>
+        </Fragment>
 
-          <p class="mt-5 text-base leading-8 text-[#bfd0ca]">{item.copy}</p>
-          <div class="interactive-note mt-5">
-            <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#7ce7c6]/78">
-              Traduccion a interfaz
-            </span>
-            <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{principleGuides[index]}</p>
-          </div>
-        </details>
-      ))}
-    </div>
+        <p class="text-base leading-8 text-[#bfd0ca]">{item.copy}</p>
+
+        <Fragment slot="note">
+          <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#7ce7c6]/78">
+            Traduccion a interfaz
+          </span>
+          <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{principleGuides[index]}</p>
+        </Fragment>
+      </InteractiveDetails>
+    ))}
   </div>
-</section>
+</PageSection>

@@ -1,6 +1,8 @@
 ---
-import SectionIntro from "../ui/SectionIntro.astro";
 import { evaluationPillars, humanCheckpoints } from "../../data/home";
+import InteractiveDetails from "../ui/InteractiveDetails.astro";
+import PageSection from "../ui/PageSection.astro";
+import SectionIntro from "../ui/SectionIntro.astro";
 
 const evaluationGuides = [
   "Busca impacto observable en tiempo, calidad o carga operativa. Si no mejora nada medible, no hay producto.",
@@ -16,77 +18,72 @@ const checkpointGuides = [
 ] as const;
 ---
 
-<section id="evaluacion" class="relative z-30 px-6 pb-20 md:px-10">
-  <div class="content-shell grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-    <div class="glass-panel rounded-[2rem] p-8 md:p-10">
-      <SectionIntro
-        eyebrow="Criterio"
-        title="La pregunta correcta no es si la IA parece lista, sino si trabaja bien dentro de limites claros."
-        description="Los pilares se pueden abrir para que la evaluacion no se quede en sensaciones. La idea es leer calidad, coste y supervision como un mismo problema."
-        titleClass="max-w-3xl font-serif text-5xl leading-[0.95] text-[#f2e8d7] md:text-6xl"
-        descriptionClass="max-w-xl text-base leading-8 text-[#a7bab3]"
-      />
+<PageSection id="evaluacion" containerClass="grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
+  <div class="glass-panel rounded-[2rem] p-8 md:p-10">
+    <SectionIntro
+      eyebrow="Criterio"
+      title="La pregunta correcta no es si la IA parece lista, sino si trabaja bien dentro de limites claros."
+      description="Los pilares se pueden abrir para que la evaluacion no se quede en sensaciones. La idea es leer calidad, coste y supervision como un mismo problema."
+      titleClass="max-w-3xl font-serif text-5xl leading-[0.95] text-[#f2e8d7] md:text-6xl"
+      descriptionClass="max-w-xl text-base leading-8 text-[#a7bab3]"
+    />
 
-      <div class="mt-8 space-y-4">
-        {evaluationPillars.map((item, index) => (
-          <details
-            class="interactive-details rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5"
-            open={index === 0}
-          >
-            <summary class="interactive-summary">
-              <div>
-                <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#7ce7c6]/78">
-                  Pilar
-                </span>
-                <h3 class="mt-3 font-serif text-3xl leading-tight text-[#f2e8d7]">
-                  {item.title}
-                </h3>
-              </div>
-              <span class="interactive-chevron">+</span>
-            </summary>
+    <div class="mt-8 space-y-4">
+      {evaluationPillars.map((item, index) => (
+        <InteractiveDetails
+          class="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5"
+          open={index === 0}
+          bodyClass="mt-3"
+        >
+          <Fragment slot="summary">
+            <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#7ce7c6]/78">
+              Pilar
+            </span>
+            <h3 class="mt-3 font-serif text-3xl leading-tight text-[#f2e8d7]">
+              {item.title}
+            </h3>
+          </Fragment>
 
-            <p class="mt-3 text-sm leading-7 text-[#c3d0cb]">{item.copy}</p>
-            <div class="interactive-note mt-4">
-              <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#f3a65f]/78">
-                Como leerlo
-              </span>
-              <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{evaluationGuides[index]}</p>
-            </div>
-          </details>
-        ))}
-      </div>
-    </div>
+          <p class="text-sm leading-7 text-[#c3d0cb]">{item.copy}</p>
 
-    <div class="glass-panel rounded-[2rem] p-8 md:p-10">
-      <p class="micro-label">Control humano</p>
-      <h3 class="mt-6 max-w-lg font-serif text-4xl leading-tight text-[#f2e8d7]">
-        Hay momentos en los que una buena experiencia necesita menos autonomia y mas criterio visible.
-      </h3>
-      <div class="mt-8 space-y-4">
-        {humanCheckpoints.map((item, index) => (
-          <details
-            class="interactive-details rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5"
-            open={index === 0}
-          >
-            <summary class="interactive-summary">
-              <div>
-                <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#f3a65f]/78">
-                  {item.stage}
-                </span>
-                <p class="mt-3 text-sm leading-7 text-[#c6d2ce]">{item.signal}</p>
-              </div>
-              <span class="interactive-chevron">+</span>
-            </summary>
-
-            <div class="interactive-note mt-4">
-              <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#7ce7c6]/78">
-                Decision de interfaz
-              </span>
-              <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{checkpointGuides[index]}</p>
-            </div>
-          </details>
-        ))}
-      </div>
+          <Fragment slot="note">
+            <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#f3a65f]/78">
+              Como leerlo
+            </span>
+            <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{evaluationGuides[index]}</p>
+          </Fragment>
+        </InteractiveDetails>
+      ))}
     </div>
   </div>
-</section>
+
+  <div class="glass-panel rounded-[2rem] p-8 md:p-10">
+    <p class="micro-label">Control humano</p>
+    <h3 class="mt-6 max-w-lg font-serif text-4xl leading-tight text-[#f2e8d7]">
+      Hay momentos en los que una buena experiencia necesita menos autonomia y mas criterio visible.
+    </h3>
+    <div class="mt-8 space-y-4">
+      {humanCheckpoints.map((item, index) => (
+        <InteractiveDetails
+          class="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5"
+          open={index === 0}
+          bodyClass="sr-only"
+        >
+          <Fragment slot="summary">
+            <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#f3a65f]/78">
+              {item.stage}
+            </span>
+            <p class="mt-3 text-sm leading-7 text-[#c6d2ce]">{item.signal}</p>
+          </Fragment>
+
+          <Fragment slot="note">
+            <span class="text-[0.68rem] uppercase tracking-[0.28em] text-[#7ce7c6]/78">
+              Decision de interfaz
+            </span>
+            <p class="mt-3 text-sm leading-7 text-[#c7d3cf]">{checkpointGuides[index]}</p>
+          </Fragment>
+        </InteractiveDetails>
+      ))}
+    </div>
+  </div>
+</PageSection>

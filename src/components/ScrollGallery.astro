@@ -1,8 +1,9 @@
 ---
 import { galleryRowA, galleryRowB } from "../data/home";
+import PageSection from "./ui/PageSection.astro";
 ---
 
-<section class="relative z-30 overflow-hidden px-6 pb-20 pt-8 md:px-10">
+<PageSection class="overflow-hidden pt-8" shell={false}>
   <div class="content-shell">
     <div class="mb-10 flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
       <div>
@@ -18,7 +19,6 @@ import { galleryRowA, galleryRowB } from "../data/home";
       </p>
     </div>
   </div>
-
   <div class="space-y-6">
     <div class="gallery-strip">
       <div class="gallery-track flex w-max gap-5 pl-6 pr-10 md:pl-10">
@@ -128,7 +128,7 @@ import { galleryRowA, galleryRowB } from "../data/home";
       </div>
     </div>
   </div>
-</section>
+</PageSection>
 
 <style>
   .gallery-strip {

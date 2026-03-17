@@ -93,6 +93,12 @@ a {
   margin-inline: auto;
 }
 
+.page-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 920px;
+  contain: layout paint;
+}
+
 .ambient-grid {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),

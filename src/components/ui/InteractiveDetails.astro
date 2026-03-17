@@ -1,0 +1,34 @@
+---
+interface Props {
+  open?: boolean;
+  class?: string;
+  summaryClass?: string;
+  bodyClass?: string;
+  noteClass?: string;
+  chevronClass?: string;
+}
+
+const {
+  open = false,
+  class: className = "",
+  summaryClass = "",
+  bodyClass = "mt-4",
+  noteClass = "mt-4",
+  chevronClass = "",
+} = Astro.props;
+
+const hasBody = Astro.slots.has("default");
+const hasNote = Astro.slots.has("note");
+---
+
+<details class={`interactive-details ${className}`.trim()} open={open}>
+  <summary class={`interactive-summary ${summaryClass}`.trim()}>
+    <div class="min-w-0 flex-1">
+      <slot name="summary" />
+    </div>
+    <span class={`interactive-chevron ${chevronClass}`.trim()} aria-hidden="true">+</span>
+  </summary>
+
+  {hasBody && <div class={bodyClass}><slot /></div>}
+  {hasNote && <div class={`interactive-note ${noteClass}`.trim()}><slot name="note" /></div>}
+</details>

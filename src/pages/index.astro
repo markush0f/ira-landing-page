@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import InteractiveCanvas from "../components/InteractiveCanvas.astro";
 import AIExamples from "../components/AIExamples.astro";
-import AgentsShowcase from "../components/AgentsShowcase.astro";
 import ScrollGallery from "../components/ScrollGallery.astro";
 import ArchiveSection from "../components/home/ArchiveSection.astro";
 import DesignPrinciplesSection from "../components/home/DesignPrinciplesSection.astro";
@@ -11,10 +10,26 @@ import FinalCalloutSection from "../components/home/FinalCalloutSection.astro";
 import FundamentalsSection from "../components/home/FundamentalsSection.astro";
 import GlossarySection from "../components/home/GlossarySection.astro";
 import ModesSection from "../components/home/ModesSection.astro";
+import MysteriesSection from "../components/home/MysteriesSection.astro";
 import ResponseCycleSection from "../components/home/ResponseCycleSection.astro";
 import SystemLayersSection from "../components/home/SystemLayersSection.astro";
 import UnderstandingSection from "../components/home/UnderstandingSection.astro";
-import SectionIntro from "../components/ui/SectionIntro.astro";
+
+const sections = [
+  ArchiveSection,
+  FundamentalsSection,
+  ModesSection,
+  ResponseCycleSection,
+  SystemLayersSection,
+  AIExamples,
+  UnderstandingSection,
+  EvaluationSection,
+  GlossarySection,
+  MysteriesSection,
+  ScrollGallery,
+  DesignPrinciplesSection,
+  FinalCalloutSection,
+] as const;
 ---
 
 <Layout
@@ -23,29 +38,6 @@ import SectionIntro from "../components/ui/SectionIntro.astro";
 >
   <main id="top" class="relative overflow-x-hidden">
     <InteractiveCanvas />
-    <ArchiveSection />
-    <FundamentalsSection />
-    <ModesSection />
-    <ResponseCycleSection />
-    <SystemLayersSection />
-    <AIExamples />
-    <UnderstandingSection />
-    <EvaluationSection />
-    <GlossarySection />
-
-    <section id="misterios" class="relative z-30 px-6 pb-20 md:px-10">
-      <div class="content-shell">
-        <SectionIntro
-          eyebrow="Mecanismos sellados"
-          title="Casos concretos para entender por que una conversacion con IA puede parecer mas humana de lo que es."
-          description="Aqui la interaccion importa: cada expediente aterriza un fenomeno distinto y traduce conceptos abstractos en consecuencias reales de producto, confianza y experiencia de usuario."
-        />
-        <AgentsShowcase />
-      </div>
-    </section>
-
-    <ScrollGallery />
-    <DesignPrinciplesSection />
-    <FinalCalloutSection />
+    {sections.map((SectionComponent) => <SectionComponent />)}
   </main>
 </Layout>
