@@ -94,6 +94,29 @@ export const fundamentals = [
   },
 ] as const;
 
+export const aiModes = [
+  {
+    title: "IA generativa",
+    copy: "Produce texto, imagen, audio o codigo a partir de patrones aprendidos. Brilla creando borradores, variaciones y primeras versiones utiles.",
+    example: "chat, asistentes, imagenes, prototipos y apoyo a escritura",
+  },
+  {
+    title: "IA clasificadora",
+    copy: "Ordena, detecta o etiqueta elementos segun rasgos comunes. Es la capa que ayuda a priorizar tickets, filtrar fraude o enrutar incidencias.",
+    example: "spam, moderacion, scoring, soporte y analisis documental",
+  },
+  {
+    title: "IA predictiva",
+    copy: "Estima lo que probablemente ocurra con base en datos historicos. No inventa contenido: calcula tendencias, riesgo o demanda esperada.",
+    example: "forecasting, churn, demanda, pricing y mantenimiento",
+  },
+  {
+    title: "IA agentica",
+    copy: "Encadena pasos, consulta herramientas y ejecuta acciones con un objetivo definido. Su valor no es solo hablar, sino operar sobre sistemas reales.",
+    example: "investigacion, automatizacion interna y flujos con varias herramientas",
+  },
+] as const;
+
 export const responseCycle = [
   {
     step: "01",
@@ -114,6 +137,39 @@ export const responseCycle = [
     step: "04",
     title: "Entrega una forma convincente",
     copy: "El resultado final puede sonar experto, cercano o creativo. Esa forma es poderosa, pero no sustituye la verificacion.",
+  },
+] as const;
+
+export const systemLayers = [
+  {
+    label: "Capa 01",
+    title: "Modelo base",
+    copy: "Es el motor que genera lenguaje, clasifica o razona por aproximacion. Sin mas capas, sabe continuar patrones, no necesariamente resolver tu caso de negocio.",
+  },
+  {
+    label: "Capa 02",
+    title: "Prompt de sistema",
+    copy: "Marca rol, tono, restricciones y prioridades. Mucha diferencia entre un producto mediocre y uno solido nace aqui, no en cambiar de modelo cada semana.",
+  },
+  {
+    label: "Capa 03",
+    title: "Contexto recuperado",
+    copy: "Documentos, historico o datos recientes que se inyectan antes de responder. Esta capa reduce invenciones cuando el modelo necesita informacion externa y actual.",
+  },
+  {
+    label: "Capa 04",
+    title: "Herramientas",
+    copy: "Buscadores, CRM, bases de datos o APIs que el sistema puede consultar o accionar. Sin herramientas, una IA conversa; con herramientas, empieza a trabajar.",
+  },
+  {
+    label: "Capa 05",
+    title: "Memoria de sesion",
+    copy: "Resume lo que acaba de pasar para sostener continuidad. Da sensacion de relacion estable, pero sigue siendo memoria parcial, fragil y disenada.",
+  },
+  {
+    label: "Capa 06",
+    title: "Guardrails",
+    copy: "Filtros, validaciones y reglas de salida que frenan respuestas peligrosas, datos sensibles o acciones fuera de rango. Son parte del producto, no un detalle secundario.",
   },
 ] as const;
 
@@ -159,6 +215,40 @@ export const uses = [
   {
     title: "Como usarla mejor",
     points: "dar contexto, pedir pasos, exigir fuentes cuando toque, validar hechos externos y separar claramente creatividad de verificacion.",
+  },
+] as const;
+
+export const evaluationPillars = [
+  {
+    title: "Utilidad",
+    copy: "La pregunta clave no es si la respuesta impresiona, sino si ahorra tiempo, reduce errores o mejora una decision concreta.",
+  },
+  {
+    title: "Precision operativa",
+    copy: "No basta con sonar bien. Hay que medir cuando acierta, cuando duda y en que escenarios empieza a inventar o simplificar demasiado.",
+  },
+  {
+    title: "Latencia y coste",
+    copy: "Un flujo excelente sobre el papel puede romperse si tarda demasiado o si cada consulta cuesta mas de lo que el caso soporta.",
+  },
+  {
+    title: "Supervision",
+    copy: "Cuanto mas impacto tenga la respuesta, mas clara debe ser la ruta para revisar, corregir o escalar a una persona.",
+  },
+] as const;
+
+export const humanCheckpoints = [
+  {
+    stage: "Antes de responder",
+    signal: "Si faltan datos, fechas, fuentes o contexto del negocio, la IA necesita preguntar o recuperar informacion antes de seguir.",
+  },
+  {
+    stage: "Antes de ejecutar",
+    signal: "Si la salida implica dinero, salud, legalidad, acceso o reputacion, conviene exigir confirmacion humana aunque el texto parezca perfecto.",
+  },
+  {
+    stage: "Despues de fallar",
+    signal: "Cada error recurrente deberia convertirse en ajuste de prompt, reglas, evaluacion o interfaz. Sin ese bucle, el sistema no madura.",
   },
 ] as const;
 

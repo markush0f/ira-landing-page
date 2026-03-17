@@ -1,0 +1,28 @@
+---
+import SectionIntro from "../ui/SectionIntro.astro";
+import { systemLayers } from "../../data/home";
+---
+
+<section id="arquitectura" class="relative z-30 px-6 pb-24 md:px-10">
+  <div class="mx-auto max-w-7xl">
+    <SectionIntro
+      eyebrow="Arquitectura real"
+      title="Una experiencia con IA no es solo el modelo: es una pila de decisiones tecnicas y de producto."
+      description="Cuando un usuario dice que una IA funciona bien o mal, normalmente esta juzgando el conjunto: prompt, contexto, herramientas, guardrails y puesta en escena."
+    />
+
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {systemLayers.map((item) => (
+        <article class="rounded-[1.7rem] border border-white/8 bg-white/[0.03] p-6">
+          <span class="text-[0.68rem] uppercase tracking-[0.3em] text-[#f3a65f]/78">
+            {item.label}
+          </span>
+          <h3 class="mt-4 font-serif text-3xl leading-tight text-[#f2e8d7]">
+            {item.title}
+          </h3>
+          <p class="mt-4 text-sm leading-7 text-[#c3d0cb]">{item.copy}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

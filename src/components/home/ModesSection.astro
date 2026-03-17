@@ -1,0 +1,31 @@
+---
+import SectionIntro from "../ui/SectionIntro.astro";
+import { aiModes } from "../../data/home";
+---
+
+<section id="tipos-de-ia" class="relative z-30 px-6 pb-24 md:px-10">
+  <div class="mx-auto max-w-7xl">
+    <SectionIntro
+      eyebrow="Panorama"
+      title="No toda IA hace lo mismo aunque desde fuera se meta todo en la misma bolsa."
+      description="Separar tipos de sistemas evita promesas vagas. Una IA que genera contenido, una que clasifica y una que actua sobre herramientas tienen riesgos, costes y metricas distintas."
+    />
+
+    <div class="grid gap-4 lg:grid-cols-4">
+      {aiModes.map((item) => (
+        <article class="glass-panel rounded-[1.8rem] p-6 md:p-7">
+          <span class="text-[0.68rem] uppercase tracking-[0.32em] text-[#7ce7c6]/78">
+            Tipo
+          </span>
+          <h3 class="mt-5 font-serif text-4xl leading-none text-[#f2e8d7]">
+            {item.title}
+          </h3>
+          <p class="mt-5 text-sm leading-7 text-[#bfd0ca]">{item.copy}</p>
+          <p class="mt-5 border-t border-white/8 pt-5 text-xs uppercase tracking-[0.24em] text-[#f3a65f]/78">
+            {item.example}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
